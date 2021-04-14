@@ -68,6 +68,7 @@ class hx711():
     def calibrate(self):
         """
         Funkcja kalibrująca urządzenie, zajmuje kilka do kilkunastu sekund
+
         :return: Błąd odczytu: float
         """
         self.cal = self.read_filtered(50, 5)
@@ -125,6 +126,7 @@ class hx711():
     def get_weight_g(self):
         """
         Funkcja mierząca wagę w g
+
         :return: Waga w g: float
         """
         value = self.read_filtered(20, 4) - self.cal
@@ -135,6 +137,7 @@ class hx711():
     def get_weight_kg(self):
         """
         Funkcja mierząca wagę w kg
+
         :return: Waga w kg: float
         """
         return round(self.get_weight_g() / 1000, 3)
