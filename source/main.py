@@ -8,7 +8,7 @@ tenso = hx711(5, 4)
 tenso.calibrate()
 
 while True:
-    # wynik = tenso.read_filtered(5, 4)
+    wynik = tenso.read_filtered(5, 4)
     # print("")
     # print("")
     # print(wynik)
