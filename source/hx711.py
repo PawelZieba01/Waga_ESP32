@@ -15,6 +15,8 @@ class hx711():
 
     Autor 'Ja'(Paweł Zięba) nie ponosi żadnej odpowiedzialności za szkody psychiczne i fizyczne wynikające
     z użycia ww. klasy. Pozdrawiam :)
+
+    **Autor: Paweł Zięba 14.04.2021
     """
 
     READY_TIMEOUT_SEC = const(5)
