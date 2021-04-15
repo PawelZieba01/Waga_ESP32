@@ -10,6 +10,7 @@ class MySDCard():
     *Domyślna ścieżka do karty: "/sd"
     *Domyślna ścieżka do pliku z logami: "/sd/log.txt"
     *Blokuje program do momentu podłączenia karty SD
+    **Wymaga modułu 'sdcard.py' (MIT) - https://github.com/micropython/micropython/blob/master/drivers/sdcard/sdcard.py
     **Autor: Paweł Zięba 15.04.2021
     """
     def __init__(self, spi, cs_pin, mount_dir="/sd", log_dir="/sd/log.txt"):
