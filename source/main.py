@@ -1,13 +1,11 @@
-from MySDCard import MySDCard
+import My_fun_dht11 as dht
 from time import sleep
-import machine
+
+while True:
+    print(dht.get_measure())
+    sleep(1)
 
 
-sd = MySDCard(machine.SPI(1), 15)
-sd.set_log_dir("/sd/logs.txt")
 
-print(sd.get_file_size("/sd/logs.txt"))
-print(sd.get_free_size("/sd"))
-print("")
 
 
