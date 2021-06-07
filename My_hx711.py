@@ -17,6 +17,11 @@ class My_hx711():
     z użycia ww. klasy. Pozdrawiam :)
 
     **Autor: Paweł Zięba 14.04.2021
+
+    Przykładowa procedura:
+    1. Inicjalizacja
+    2. Kalibracja
+    3. Odczyt wagi
     """
 
     READY_TIMEOUT_SEC = const(5)
@@ -91,10 +96,15 @@ class My_hx711():
     def read_raw(self):
         """
         Funkcja pobierająca dane z ukłądu hx711
-        :return: Odczyt w postaci DEC: int
+
+        :return: Odczyt w postaci DEC lub 'False' keśli wystąpi błąd: int or bool
         """
         if(not self.is_ready()):
-            self._wait()
+            try:
+                self._wait()
+            except Exception as e:
+                print(e)
+                return False
 
         data = 0
         for i in range(self.DATA_RANGE):
@@ -114,6 +124,7 @@ class My_hx711():
         Funkcja pobierająca i uśredniająca dane z ukłądu hx711 (filtr low-pass)
         :param cycles: Ilość pomiarów do uśrednienia: int
         :param dt: Współczynnik filtru low-pass: int
+
         :return: Średnia wartość z iluś pomiarów: float
         """
         average = 0

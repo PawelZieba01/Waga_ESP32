@@ -3,15 +3,20 @@ from time import sleep
 
 class My_SDCard():
     """
-    Klasa obsługująca komunikację i wymianę danych z kartą SD.\n
-    Komunikacja po magistrali SPI.\n
-    Wymagany pin CS.\n
-    *Możliwość zbierania danych w postaci logów na karcie SD.\n
-    *Domyślna ścieżka do karty: "/sd"\n
-    *Domyślna ścieżka do pliku z logami: "/sd/log.txt"\n
-    *Blokuje program do momentu podłączenia karty SD (na etapie inicjalizacji)\n
-    **Wymaga modułu 'sdcard.py' (MIT) - https://github.com/micropython/micropython/blob/master/drivers/sdcard/sdcard.py \n
+    Klasa obsługująca komunikację i wymianę danych z kartą SD.
+    Komunikacja po magistrali SPI.
+    Wymagany pin CS.
+    *Możliwość zbierania danych w postaci logów na karcie SD.
+    *Domyślna ścieżka do karty: "/sd"
+    *Domyślna ścieżka do pliku z logami: "/sd/log.txt"
+    *Blokuje program do momentu podłączenia karty SD (na etapie inicjalizacji)
+    **Wymaga modułu 'sdcard.py' (MIT) - https://github.com/micropython/micropython/blob/master/drivers/sdcard/sdcard.py
     **Autor: Paweł Zięba 15.04.2021
+
+    Przykładowa procedura:
+    1. Inicjalizacja
+    2. Podłączneie karty SD do systemu plików (automatycznie przy inicjalizacji)
+    3. Zapisanie logu do pliku na karcie
     """
 
     def __init__(self, spi, cs_pin, mount_dir="/sd", log_dir="/sd/log.txt"):
@@ -38,7 +43,7 @@ class My_SDCard():
         """
         Funkacja inicjalizująca i podłączająca kartę SD do systemu plików ESP
 
-        :return: Status powodzenia, 'True' jeśli się uda połączyć: bool
+        :return: Status powodzenia, 'True' jeśli się uda połączyć, w przeciwnym razie 'False': bool
         """
         try:
             self.sd.init_card()
@@ -91,7 +96,7 @@ class My_SDCard():
 
         :param log_text: Treść logu do zapisania: string
         :param log_dir: Opcjonalna ścieżka do pliku, w którym ma zostać zapisany log: string
-        :return: Status powodzenia, 'True' jeśli się uda zapisać: bool
+        :return: Status powodzenia, 'True' jeśli się uda zapisać, w przeciwnym razie 'False': bool
         """
         try:
             if(log_dir):

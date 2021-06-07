@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="98566059-ecb6-4046-a0c4-82249955238e" name="Default Changelist" comment="Działaj!" />
+    <list default="true" id="98566059-ecb6-4046-a0c4-82249955238e" name="Default Changelist" comment="07.06.2021">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/My_SDCard.py" beforeDir="false" afterPath="$PROJECT_DIR$/My_SDCard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/My_fun_dht11.py" beforeDir="false" afterPath="$PROJECT_DIR$/My_fun_dht11.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/My_hx711.py" beforeDir="false" afterPath="$PROJECT_DIR$/My_hx711.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/My_sim800l.py" beforeDir="false" afterPath="$PROJECT_DIR$/My_sim800l.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623089786377</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="07.06.2021">
+      <created>1623090021698</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1623090021698</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,6 +101,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Działaj!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Działaj!" />
+    <MESSAGE value="07.06.2021" />
+    <option name="LAST_COMMIT_MESSAGE" value="07.06.2021" />
   </component>
 </project>

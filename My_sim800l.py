@@ -10,9 +10,16 @@ from time import sleep
 
 class My_sim800l:
     """
-    Klasa odpowiedzialna za obsługę modułu sim800l.\n
-    *Wspierane urządzenia: ESP32\n
+    Klasa odpowiedzialna za obsługę modułu sim800l.
+    *Wspierane urządzenia: ESP32
     *Należy podać numer interfejsu UART oraz piny RX i TX !!!
+
+    Przykładowa procedura:
+    1. Inicjalizacja
+    2. Reset
+    3. Odblokowanie karty SIM
+    4. Połączenie z APN'em
+    5. Wysłanie zapytania http
     """
     def __init__(self, sleep_pin, uart=2, baudrate=115200, rx=16, tx=17, rxbuf=1024):
         """
@@ -53,10 +60,10 @@ class My_sim800l:
 
     def _read_data(self, timeout=None):
         """
-        Funkcja odczytująca dane z interfejsu UART - blokuje program przez czas określony w zmiennej 'timeout'.
+        Funkcja odczytująca dane z interfejsu UART - blokuje program (przed odczytem) przez czas określony w zmiennej 'timeout'.
 
         :param timeout: Czas[s], oczekiwania przed próbą odczytania danych: int
-        :return: Jeśli dane dostępne zwraca odczytany ciąg znaków: string
+        :return: Jeśli dane dostępne zwraca odczytany ciąg znaków, w przeciwnym razie pusty string: string
         """
         # t = ticks_ms()
         # # if(timeout):
@@ -296,6 +303,11 @@ class My_sim800l:
 
 
     def enable_transparent_mode(self):
+        """
+        Funkcja włączająca tryb transparentny.
+
+        :return: 'True' jeśli się uda, w przeciwnym razie 'False': bool
+        """
         self._send_data("AT+CIPMODE=1\n")
         resp = self._read_data(0.2)
         if (resp.find("OK") > 0):
@@ -308,6 +320,11 @@ class My_sim800l:
 
 
     def disable_transparent_mode(self):
+        """
+        Funkcja wyłączająca tryb transparentny.
+
+        :return: 'True' jeśli się uda, w przeciwnym razie 'False': bool
+        """
         self._send_data("AT+CIPMODE=0\n")
         resp = self._read_data(0.2)
         if (resp.find("OK") > 0):
@@ -338,6 +355,13 @@ class My_sim800l:
 
 
     def go_sleep(self):
+        """
+        Funkcja usypiająca moduł sim800l.
+        Pobór prądu ok. 2mA.
+        Blokuje program na 5,2s.
+
+        :return: 'True' jeśli się uda, w przeciwnym razie 'False': bool
+        """
         self.sleep_pin.value(1)
         self._send_data("AT+CSCLK=2\n")
         resp = self._read_data(0.2)
@@ -352,6 +376,13 @@ class My_sim800l:
 
 
     def wake_up(self):
+        """
+        Funkcja usypiająca moduł sim800l.
+        Pobór prądu ok. 2mA.
+        Blokuje program na 1,7s.
+
+        :return: 'True' jeśli się uda, w przeciwnym razie 'False': bool
+        """
         self.sleep_pin.value(0)
         self._ping(2)
         self._send_data("AT+CSCLK=0\n")
@@ -368,6 +399,7 @@ class My_sim800l:
     def reset(self):
         """
         Funkcja resetująca układ sim800l, po resecie należy odczekać przynajmniej 5 sekund przed wysłaniem kolejnego polecenia.
+        Blokuje program na 5,2s.
 
         :return: 'True' jeśli uda się zresetować, w przeciwnym wypadku 'False': bool
         """
@@ -375,6 +407,7 @@ class My_sim800l:
         resp = self._read_data(0.2)
         if (resp.find("OK") > 0):
             print("--Reset--")
+            sleep(5)
             return True
         else:
             print("--Nie udalo sie zresetowac--")

@@ -9,6 +9,7 @@ myDht = dht.DHT11(Pin(5))
 def get_measure():
     """
     Funkcja odczytująca z czujnika wartość temperatury i wilgotności.
+
     :return: Jeśli pomiar się uda - temperatura i wilgotność: tuple: (int, int), w przeciwnym wypadku 'False': bool
     """
     try:

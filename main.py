@@ -6,7 +6,7 @@ print("START")
 
 sim = My_sim800l(25, 2, 115200, 16, 17, 1024)
 sim.reset()
-sleep(5)
+
 sim.disable_debug_mode()
 
 if(sim.check_sim() == "SIM PIN"):
