@@ -5,7 +5,7 @@ from micropython import const
 
 class My_hx711():
     """
-    Prosta i trywialna klasa, służąca do obsługi konwertera ADC hx711 i belki tensometrycznej
+    Klasa, służąca do obsługi konwertera ADC hx711 i belki tensometrycznej
     Umie pobierać surowe dane, dane przefiltrowane, wagę w gramach i wagę w kilogramach.
 
     hx711 - 24-bitowy konwerter ADC
