@@ -10,12 +10,6 @@ class My_hx711():
 
     hx711 - 24-bitowy konwerter ADC
 
-    Przed użyciem skonsultuj się z lekarzem lub farmaceutom, albowiem najpierw trzeba skalibrować
-    urządzenie funkcją 'calibrate()'.
-
-    Autor 'Ja'(Paweł Zięba) nie ponosi żadnej odpowiedzialności za szkody psychiczne i fizyczne wynikające
-    z użycia ww. klasy. Pozdrawiam :)
-
     **Autor: Paweł Zięba 14.04.2021
 
     Przykładowa procedura:
