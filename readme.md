@@ -1,1 +1,1 @@
-Projekt GUPIego ULa, który zbiera informacje o wadze, temperaturze i wilgotności powietrza. Módlmy się, ażeby owy produkt powstał, AMEN.
+Projekt wagi pasiecznej, która zbiera informacje o wadze, temperaturze i wilgotności powietrza.   --- Nie skończony ---
